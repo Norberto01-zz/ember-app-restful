@@ -1,0 +1,21 @@
+<ul class="banner">
+    {{#each images as |img|}}
+        <li class="slide-banner">
+            {{#if link}}
+                <a href="{{link}}">
+                    {{#if iclass}}
+                        <img class={{ iclass }} src="{{img.file}}" alt="{{img.title}}">
+                    {{else}}
+                        <img src="{{img.file}}" alt="{{img.title}}">
+                    {{/if}}
+                </a>
+            {{else}}
+                {{#if iclass}}
+                    <img class={{ iclass }} src="{{img.file}}" alt="{{img.title}}">
+                {{else}}
+                    <img src="{{img.file}}" alt="{{img.title}}">
+                {{/if}}
+            {{/if}}
+        </li>
+    {{/each}}
+</ul>

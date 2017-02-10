@@ -1,0 +1,24 @@
+<div class="rates-content">
+  <h1>Rates for International Calls</h1>
+  <div class="frtopup">
+    <article class="wrapfrtopup wrap_rates rates">
+      <label for="whoto">Where will you be calling from?</label>
+      <select id="whoto" class="form-control" onChange={{action "filterByIso" value="target.value" }}>
+        <option>- Select a country -</option>
+        {{#each model.channels as |channel index|}}
+          {{#if (eq currentChannel channel.id)}}
+            <option value="{{ channel.id }}" selected>
+              {{ channel.countryCurrency.country_id.name }}
+            </option>
+          {{else}}
+            <option value="{{ channel.id }}">
+              {{ channel.countryCurrency.country_id.name }}
+            </option>
+          {{/if}}
+        {{/each}}
+      </select>
+    </article>
+    {{rate-filter entities=isoCountry currentRate=currentRate channelId=channelId countryRates=countryRates}}
+    {{channel-amount channelAmounts=channelAmounts currentChannel=currentChannel }}
+  </div><!--/endform -->
+</div>

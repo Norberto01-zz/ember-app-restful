@@ -1,0 +1,20 @@
+<!-- Tab panes -->
+{{#each items as |item|}}
+    <div class="col-md-4 col-sm-4 col-xs-4 col-6">
+        <a href="#" data-detalle="promo_1" class="promo_link">
+            <img width="45" height="33" src="{{item.main_image.file}}" alt="" class="pull-left flags">
+            <strong>{{item.title}}</strong>
+            <small>4 promotions</small>
+        </a>
+        <div id="promo_1" class="promo_details">
+            <div class="close_icon"></div>
+            <h3>Name of the promotion CALLS+SMS+INTERNET</h3>
+            <p>
+                There are many variations of passages of lorem ipsum available, but the <br/>
+                majority have suffered alteration in some form.
+            </p>
+            <button class="btn btn_send_topup">Send Top-Up</button>
+        </div>
+        <br/><br/>
+    </div>
+{{/each}}

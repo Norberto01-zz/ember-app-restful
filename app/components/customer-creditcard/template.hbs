@@ -1,0 +1,39 @@
+{{#if creditcards}}
+<div class="wraptarifa_list credit-card-list">
+  <div class="rates_title cc-title">
+    <h2>Available Credit Cards</h2>
+  </div>
+  <article class="wrapfrtopup">
+    <div class="col-lg-12">
+      <ul class="region_list">
+        {{#each creditcards as |item| }}
+          <li>
+            <div class="input-group">
+              <span class="input-group-addon beautiful">
+                <input type="radio" name="credits" value=creditCard onClick={{action "pickCCAddress" item.id item.addressLine}}>
+              </span>
+
+              {{#if (eq item.id selectedCC)}}
+                <div class="col-lg-10 no-pad">
+                  <input type="text" class="form-control" disabled value="{{item.ccNumber}}">
+                </div>
+                <div class="col-lg-2 no-pad">
+                  {{input type='text' value=cvvCard placeholder='CVV' class='input form-control show'}}
+                </div>
+              {{else}}
+                <div class="col-lg-12 no-pad">
+                  <input type="text" class="form-control col-lg-12" disabled value="{{item.ccNumber}}">
+                </div>
+              {{/if}}
+            </div>
+          </li>
+        {{/each}}
+        <li>
+            {{form-creditcard}}
+            <!--<button type="button" class="btn_buy_minutes btn-list">Pay with a new credit card</button>-->
+        </li>
+      </ul>
+    </div>
+  </article>
+</div>
+{{/if}}

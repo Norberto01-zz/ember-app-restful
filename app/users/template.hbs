@@ -1,0 +1,6 @@
+<div class="user-content wrapper">
+  {{#if sessionAccount.authenticated}}
+    {{menu-account uid=sessionAccount.account.signupToken }}
+  {{/if}}
+  {{outlet}}
+</div>

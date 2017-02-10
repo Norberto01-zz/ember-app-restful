@@ -1,0 +1,64 @@
+<div class="frtopup" >
+    <label for="whoto">Who to?</label>
+    <select name="whoto" id="whoto" class="form-control" onChange={{ action "checkPrefix" }}>
+        <option value=0>Select a country</option>
+        {{#each allCountries as |country|}}
+            <option data-prefix="{{ country.prefix }}" value="{{ country.code }}"
+                    label="{{ country.name }}">{{ country.code }}</option>
+        {{/each}}
+    </select>
+    <div class="phonewrapper" {{! action "phoneVal" on="mouseLeave" }}>
+        <label for="phonenumber">Phone number?</label><br/>
+        <div class="phone-details" >
+            {{#if flagClass}}
+                <div class="id-countryselected" style="display: inline-block;">
+                    <div id="id-flagdiv" class="id-flagdiv float-left {{flagClass}}"></div>
+                    <span class="id-prefix dn-phone-prefix">+{{flag}}</span>
+                    <div class="dn-btn-border"></div>
+                </div>
+            {{/if}}
+            <div class="phone-input {{if flag "telephone" "microphone"}}">
+                {{input type="number" value=phoneNumber id="phonenumber" class="phone form-control"
+                        placeholder="Enter phone number" }}
+                <input type="hidden" id="id-opc" >
+            </div>
+            <div class="phone-go">
+                <button class="go-under" type="button" onClick={{ action "findOperator" }}>Go</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+{{#if operator}}
+  <div class="row operator-detected">
+    <div class="col-md-8 i-operator" >
+      <strong>Operator detected</strong>
+      <h1>{{operator}}</h1>
+    </div>
+    <div class="col-md-4">
+      <span class="pull-right change" onClick={{ action "changeOperator" }}>
+        Change Operator <span class="glyphicon glyphicon-cog"></span>
+      </span>
+    </div>
+  </div>
+  {{#if operatorList}}
+    <article class="operator-block">
+      <div class="row">
+        {{#each operatorList as |item|}}
+          <div class="col-md-3 col-sm-4 col-xs-6 item operator-item">
+            <div class="dollar" onClick={{ action "setNewOperator" item.id item.title}}>
+              <span>{{item.title}}</span>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </article>
+  {{/if}}
+{{/if}}
+
+
+<!--<div class="detecting" style="display: block;">-->
+    <!--<img src="http://67.222.240.237:8183/assets/images/signal.jpg" alt="Detecting Operator" class="center-block">-->
+    <!--<h1>DETECTING OPERATOR</h1>-->
+    <!--<a href="#" class="btn_choose">Let me choose myself <span class="glyphicon glyphicon-menu-right"></span></a>-->
+<!--</div>-->

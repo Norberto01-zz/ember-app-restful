@@ -1,0 +1,26 @@
+<div class="menu-wrapper">
+  <ul class="nav navbar-nav">
+    {{#each pages as |item|}}
+      {{#if item.children}}
+        <li class="listing dropdown {{item.title}}_menu_trigger">
+          <a class="dropdown-toggle" data-toggle="dropdown"
+             role="button" aria-haspopup="true" aria-expanded="false"
+             href="{{href-to item.slug}}">{{item.title}}</a>
+          <ul class="dropdown-menu">
+            {{#each item.children as |child index|}}
+              {{#if child.show_in_menus}}
+                {{#unless child.cat}}
+                  <li class="submenu_option">
+                    <a href="{{href-to item.slug}}/{{child.slug}}">{{child.title}}</a>
+                  </li>
+                {{/unless}}
+              {{/if}}
+            {{/each}}
+          </ul>
+        </li>
+      {{else}}
+        <li class="listing"><a href="{{href-to item.slug }}">{{item.title}}</a></li>
+      {{/if}}
+    {{/each}}
+  </ul>
+</div>

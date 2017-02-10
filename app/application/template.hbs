@@ -1,0 +1,111 @@
+<header>
+    <section class="top">
+        <div class="container">
+            <ul class="list-inline pull-left">
+                <li><a href="/">HOME</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">SUPPORT</a></li>
+            </ul>
+            <ul class="list-inline pull-right access-link">
+              {{#if sessionAccount.authenticated}}
+                <li>Welcome {{sessionAccount.account.username}}</li>
+                {{#if currentBalance}}
+                  <li>Current Balance: <strong>{{currentBalance}}</strong></li>
+                {{else}}
+                  <li>Current Balance: <strong>{{sessionAccount.balance}}</strong></li>
+                {{/if}}
+                <li><a href="/users/profile/{{sessionAccount.account.signupToken}}">My Account</a></li>
+                <li>
+                  <a href="#" onClick={{action 'invalidate'}}>
+                    <span class="icon icon-logout"></span>Log Out
+                  </a>
+                </li>
+              {{else}}
+                <li>
+                  <a href="/users/signin">
+                    <span class="lock"></span>Log In
+                  </a>
+                </li>
+                <li>
+                  <a href="/users/register">
+                    <span class="lock"></span>New Customer?
+                  </a>
+                </li>
+              {{/if}}
+            </ul>
+        </div>
+    </section><!--/top -->
+    <div class="clearfix"></div>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/home"><img src="assets/images/logo_prepyme.jpg" id="logo" alt="Prepy.me"></a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+              <!--Component menu here-->
+            {{menu-main pages=model.menu}}
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="threecolor"></div>
+</header>
+<section class="topup">
+  {{outlet}}
+  {{outlet 'modal'}}
+</section>
+<div id="main-footer">
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="item col-md-4 col-sm-4">
+                    <h1>ACCEPTED PAYMENTS METHODS</h1>
+                    <img src="assets/images/cards.jpg" alt="Accepted PaymentsMethods" class="img-responsive" />
+                </div>
+                <div class="item col-md-3 col-sm-3">
+                    <h1>TOP-UP</h1>
+                    <ul class="top_up">
+                        <li><a href="#">SEND TOP-UP</a></li>
+                        <li><a href="#">COUNTRIES</a></li>
+                        <li><a href="#">PROMOTIONS</a></li>
+                        <li><a href="#">ACCESS NUMBERS</a></li>
+                    </ul>
+                </div>
+                <div class="item col-md-5 col-sm-5">
+                    <h1>NEWSLETTER</h1>
+                    <form action="" class="frnewsletter">
+                        <input type="email" name="email" id="email" placeholder="enter email" />
+                        <button type="submit" class="glyphicon glyphicon-circle-arrow-right"></button>
+                    </form>
+                    <ul class="socialnetworks list-inline">
+                        <li class="tw"><a href="#" target="_blank"></a></li>
+                        <li class="fb"><a href="#" target="_blank"></a></li>
+                        <li class="gp"><a href="#" target="_blank"></a></li>
+                        <li class="in"><a href="#" target="_blank"></a></li>
+                        <li class="yt"><a href="#" target="_blank"></a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div><!--/container -->
+
+        <section class="underfooter">
+            <div class="container">
+                <img src="assets/images/go_to_top.jpg" alt="Go to top" class="gototop pull-right">
+                <p class="pull-left">&copy; Prepy.me 2015. All rights reserved.</p>
+                <ul class="list-inline pull-right">
+                    <li><a href="#">About Prepy.me</a></li>
+                    <li><a href="#">Privacy and Cookies Statement</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                </ul>
+            </div>
+        </section>
+    </footer><!--/footer -->
+</div>

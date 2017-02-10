@@ -1,0 +1,57 @@
+<div id="report-account" class="account-block">
+  <section class="login_content ">
+    <h2>Usage Report</h2>
+    <div class="row usage-report">
+      <div class="col-md-4">
+        <label for="whoto">*Usage type</label>
+        <select name="whoto" id="whoto" class="form-control">
+          <option value="DO">All</option>
+          <option value="US">Pinfree Calls</option>
+          <option value="PR">TopUp</option>
+          <option value="PR">Hello Speedy</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label for="dateFrom">*From</label>
+        <input type="date" name="dateFrom" id="input1" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="dateTo">*To</label>
+        <input type="date" name="dateTo" id="input2" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="submit" value="Search" class="btn btn_login" />
+    </div>
+  </section>
+  <section class="login_content table-responsive">
+    <div class="wraptarifa_list">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Date,time</th>
+              <th>Destination</th>
+              <th>Type</th>
+              <th>Country</th>
+              <th>Duration</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>27/05/2016</td>
+              <td>Jamaica</td>
+              <td>Topup</td>
+              <td>canada</td>
+              <td>35 minutos</td>
+              <td>50 US$</td>
+              <td>activted</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>

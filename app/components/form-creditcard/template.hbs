@@ -1,0 +1,32 @@
+<div id="add-newcc">
+    <hr>
+    <div class="col-md-12">
+        <div class="col-md-3">
+            <span class="label label-default">Card holder</span>
+            {{input type="text" value=cardHolderField class="form-control input-sm"
+                    placeholder="Card holder"}}
+        </div>
+        <div class="col-md-3">
+            <span class="label label-default">Credit Card Number</span>
+            {{input type="text" value=creditCardField class="form-control input-sm"
+                    maxlength="16" placeholder="Credit Card Number"}}
+        </div>
+        <div class="col-md-3">
+            <span class="label label-default">Exp. Date</span>
+            {{input type="month" value=expDateField class="form-control input-sm" }}
+        </div>
+        <div class="col-md-2">
+            <span class="label label-default">Type</span>
+            <select class="form-control" name="typeField" id="typeField">
+                <option value="1">Visa</option>
+                <option value="2">Master Card</option>
+                <option value="3">American Express</option>
+            </select>
+        </div>
+        <div class="col-md-1">
+            <button class="btn btn-success" onClick={{action "addCreditCard" currentController="controller" }}>
+                Add New
+            </button>
+        </div>
+    </div>
+</div>

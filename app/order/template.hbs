@@ -1,0 +1,10 @@
+<div class="order-content wrapper">
+    {{#if orderTopupArgs}}
+      {{order-shop creditcards=model.creditCards addresslines=model.addressLines newBalance=newBalance type=type
+                   orderAmount=orderAmount msgPin=msgPin classPin=classPin userBal=appControl.currentBalance
+                   orderTopupArgs=orderTopupArgs }}
+    {{else}}
+      {{order-shop creditcards=model.creditCards addresslines=model.addressLines newBalance=newBalance type=type
+                   orderAmount=amount msgPin=msgPin classPin=classPin userBal=appControl.currentBalance }}
+    {{/if}}
+</div>

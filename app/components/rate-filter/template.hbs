@@ -1,0 +1,13 @@
+<article class="wrapfrtopup wrap_rates rates-filter">
+  <label for="phonenum">Where will you call most?</label><br/>
+  <select class="form-control" onChange={{action "filterRates" value="target.value" }}>
+    <option>- Select a destiny -</option>
+    {{#each entities as |entity|}}
+      <option value="{{entity.id}}">
+        {{entity.title}}
+      </option>
+    {{/each}}
+  </select>
+</article>
+{{rate-country countryRates=countryRates}}
+

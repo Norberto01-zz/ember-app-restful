@@ -1,0 +1,32 @@
+<article class="wrap_promotions">
+    <ul class="row {{if prop "nav" " "}}" role="{{if prop "tablist" " "}}">
+        {{#each pages as |item|}}
+            <li class="{{if prop " " "col-sm-4"}}" role="{{if prop "presentation" " "}}">
+                {{#if prop}}
+                    <a href="#{{item.slug}}" aria-controls="{{item.slug}}" role="tab" data-toggle="tab">
+                      {{item.title}}
+                    </a>
+                {{/if}}
+                {{#if item.main_image.file}}
+                    <h2>
+                        <img src="{{item.main_image.file}}" alt="{{item.main_image.title}}">{{item.title}}
+                    </h2>
+                {{/if}}
+                {{#each item.body as |ibody|}}
+                    {{format-string ibody }}
+                {{/each}}
+            </li>
+        {{/each}}
+    </ul>
+    {{#if prop}}
+        <div class="tab-content">
+            {{#each pages as |item|}}
+                <div role="tabpanel" class="tab-pane" id="{{item.slug}}">
+                    <div class="row">
+                        {{#tab-content items=item.children }}{{/tab-content}}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{/if}}
+</article>

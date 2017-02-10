@@ -1,0 +1,29 @@
+{{#if addresslines}}
+  <div class="wraptarifa_list credit-card-list">
+    <div class="rates_title cc-title">
+      <h2>Billing Address {{billing}}</h2>
+    </div>
+    <article class="wrapfrtopup">
+      <div class="col-lg-12">
+        <ul class="region_list">
+          {{#each addresslines as |item| }}
+            <li>
+              <div class="input-group">
+                <span class="input-group-addon beautiful">
+                  {{#if (eq item.id billing)}}
+                    <input type="radio" name="addressline" checked
+                           value={{item.id}} >
+                  {{else}}
+                    <input type="radio" name="addressline"
+                           value={{item.id}} >
+                  {{/if}}
+                </span>
+                <div class="well well-sm">{{item.detail}}</div>
+              </div>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    </article>
+  </div>
+{{/if}}

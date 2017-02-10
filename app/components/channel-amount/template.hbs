@@ -1,0 +1,23 @@
+{{#if channelAmounts}}
+  <article class="wrapfrtopup howmuch">
+    <h3>How much?</h3>
+    <div class="row">
+      {{#each channelAmounts as |item| }}
+        {{#if item.amount}}
+          <div class="col-md-3 col-sm-4 col-xs-6 item amount-item-{{item.id}}" onClick={{action "pickAndSend" item}}>
+            <div class="dollar"><input type="hidden" value="{{item.id}}">
+              <div>{{item.currency.code}}<br>{{item.currency.symbol}}{{item.amount}}</div>
+            </div>
+          </div>
+        {{/if}}
+      {{/each}}
+    </div>
+    <!--<h3>Add a personal message</h3>-->
+    <!--<textarea name="personal_message" id="personal_message" class="personal_message" maxlength="160" onkeyup="getCount(this)"></textarea>-->
+    <!--<small class="pull-right" id="remaining">160</small>-->
+  </article>
+  <div class="clearfix"></div>
+  <div class="wrap_btn_buy">
+    <button class="btn_buy_minutes btn {{btnClass}}" onClick={{action "buyMinutes" currentController="controller" }}>Buy minutes</button>
+  </div>
+{{/if}}

@@ -1,0 +1,132 @@
+<section class="topup ordersummary">
+    <div class="container">
+        <h1>Order Summary</h1>
+        <div class="frtopup">
+            <div class="wraptarifa_list">
+                <div class="inner">
+                    <ul class="region_list">
+                        <li>
+                          <p class="pull-left text-left">Product</p>
+                          <p class="pull-right text-right">{{ type }}</p>
+                        </li>
+                        {{#if (str-eq type 'pinless') }}
+                          <li>
+                            <p class="pull-left text-left">Credit added</p>
+                            <p class="pull-right text-right">{{orderAmount}}</p>
+                          </li>
+                          <li>
+                            <p class="pull-left text-left">Current balance</p>
+                            <p class="pull-right text-right">{{userBal}}</p>
+                          </li>
+                          <li>
+                            <p class="pull-left text-left">New balance</p>
+                            <p class="pull-right text-right">{{let-sum userBal orderAmount 'f'}}</p>
+                          </li>
+                        {{else}}
+
+                        {{/if}}
+                        <li>
+                          <p class="pull-left text-left"><strong>Total to pay</strong></p>
+                          <p class="pull-right text-right"><strong>{{orderAmount}}</strong></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {{customer-creditcard creditcards=creditcards }}
+            {{customer-addressline addresslines=addresslines billing=billing }}
+            {{outlet modal}}
+            <!--
+            <article class="wrapfrtopup">
+                <h2>Secure Checkout</h2><br/>
+                <label for="cardtype">Select your card type <img src="assets/images/cardtype.jpg" alt=""></label>
+                <select name="cardtype" id="cardtype" class="form-control">
+                    <option value="">Select your card</option>
+                    <option value="Visa">Visa</option>
+                    <option value="Mastercard">Mastercard</option>
+                    <option value="Visa electron">Visa electron</option>
+                    <option value="Discover">Discover</option>
+                </select>
+                <label for="name_on_card">Name on card</label><br/>
+                <input type="text" name="name_on_card" id="name_on_card" class="form-control" />
+
+                <label for="credit_card">Card number</label><br/>
+                <input type="text" name="credit_card" id="credit_card" class="credit_card form-control" />
+
+                <div class="clearfix"></div><br/>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="exp_date">Expiry date</label><br/>
+                        <input type="text" name="exp_date" id="exp_date" class="form-control" placeholder="00/00" />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="cvv">CVV</label><br/>
+                        <input type="text" name="cvv" id="cvv" class="form-control" placeholder="000" />
+                    </div>
+                </div>
+            </article>
+            <article class="wrapfrtopup">
+                <h2>Billing address</h2><br/>
+                <label for="first_name">First name</label><br/>
+                <input type="text" name="first_name" id="first_name" class="form-control" />
+                <label for="last_name">Last name</label><br/>
+                <input type="text" name="last_name" id="last_name" class="form-control" />
+                <label for="address">address</label><br/>
+                <input type="text" name="address" id="address" class="form-control" />
+                <label for="country">Country</label>
+                <select name="country" id="country" class="form-control">
+                    <option value="">Select your country</option>
+                    <option value="Visa">Visa</option>
+                    <option value="Visa">Visa</option>
+                    <option value="Visa">Visa</option>
+                    <option value="Visa">Visa</option>
+                    <option value="Visa">Visa</option>
+                    <option value="Visa">Visa</option>
+                </select>
+                <label for="state">State</label>
+                <select name="state" id="state" class="form-control">
+                    <option value="">State</option>
+                    <option value="Visa">Visa</option>
+                    <option value="Visa">Visa</option>
+                    <option value="Visa">Visa</option>
+                    <option value="Visa">Visa</option>
+                    <option value="Visa">Visa</option>
+                    <option value="Visa">Visa</option>
+                </select>
+                <div class="clearfix"></div><br/>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="city">City</label><br/>
+                        <input type="text" name="city" id="city" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="zip_code">Postal / Zip code</label><br/>
+                        <input type="text" name="zip_code" id="zip_code" class="form-control" />
+                    </div>
+                </div>
+            </article>-->
+            <div class="clearfix"></div>
+            <div class="wrap_btn_buy">
+                <button class="btn_buy_minutes" onClick={{action "proceedToPay" orderAmount type }}>
+                    Proceed to payment
+                </button>
+            </div>
+        </div><!--/endform -->
+    </div><!--/container -->
+</section>
+
+<div class="modal fade" data-dismiss="modal" onClick={{action 'goHome'}}>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onClick={{action 'goHome'}}>&times;</button>
+        <h1 class="modal-confirm-title">Confirmation</h1>
+      </div>
+      <div class="modal-confirm-text">
+        <p class="bg-{{attrClass}} text-{{attrClass}}">{{messagePin}}</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn_buy_minutes" data-dismiss="modal" onClick={{action 'goHome'}}>Go back to homepage</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

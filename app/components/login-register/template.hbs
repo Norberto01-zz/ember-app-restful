@@ -1,0 +1,18 @@
+<section class="actions">
+    <div id="login" class="login item-log {{checkLog}}" data-content="login" >
+        <div class="content">
+            <strong class="pull-left hidden-xs">1</strong>
+            <small>Have an account?</small><br/>
+            <h2>Login to pay</h2>
+            <a href="{{href-to 'users.signin'}}" class="link-to" {{action 'checkMyLog'}}></a>
+        </div>
+    </div>
+    <div id="register" class="register item-log {{checkReg}}" data-content="register">
+        <div class="content">
+            <strong class="pull-left hidden-xs">2</strong>
+            <small>New customer?</small><br/>
+            <h2>Register</h2>
+            <a href="{{href-to 'users.register'}}" class="link-to" {{action 'checkMyReg'}}></a>
+        </div>
+    </div>
+</section>
